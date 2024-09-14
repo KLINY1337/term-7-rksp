@@ -15,8 +15,8 @@ public class App {
 
     public static void main(String[] args) throws InterruptedException, ExecutionException, IOException {
 //        Practice1.runCode();
-//        Practice2.runCode();
+        Practice2.runCode();
 //        Practice3.runCode();
-        Practice4SpringApp.main(new String[] {});
+//        Practice4SpringApp.main(new String[] {});
     }
 }

@@ -44,13 +44,13 @@ public class DirectoryWatcher {
                 } else if (kind == StandardWatchEventKinds.ENTRY_DELETE) {
                     // Невозможно получить файл, т.к. он удален
                     // Невозможно вывести контрольную сумму, т.к. файл уже был удален
+                    return;
                 }
             }
             key.reset();
         }
     }
 
-    // Метод для чтения файла в виде списка строк
     private static List<String> readFile(Path filePath) throws IOException {
         try (Stream<String> lines = Files.lines(filePath)) {
             return lines.collect(Collectors.toList());
@@ -60,17 +60,6 @@ public class DirectoryWatcher {
     private static void compareFileContents(List<String> oldContent, List<String> newContent) {
         System.out.println("Changes detected:");
         newContent.forEach(System.out::println);
-//        for (String line : newContent) {
-//            if (!oldContent.contains(line)) {
-//                System.out.println("Added: " + line);
-//            }
-//        }
-//
-//        for (String line : oldContent) {
-//            if (!newContent.contains(line)) {
-//                System.out.println("Removed: " + line);
-//            }
-//        }
     }
 }
 
